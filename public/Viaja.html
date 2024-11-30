@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Especifica el conjunto de caracteres para el documento -->
+    <meta charset="UTF-8">
+    <!-- Configura el viewport para que el diseño sea responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
+    <title>Viaja | URBAN</title>
+    <!-- Enlace al archivo CSS externo para estilos -->
+    <link rel="stylesheet" href="Viaja.css">
+    <!-- Enlace a la librería Leaflet para mapas -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Enlace a Leaflet Routing Machine para rutas -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+</head>
+<body>
+    <!-- Cabecera de la página -->
+    <header>
+        <div class="logo">URBAN</div>
+        <nav>
+            <ul>
+                <li><a href="Viaja.html">Viaja</a></li>
+                <li><a href="#">-</a></li>
+                <li><a href="IniciarSesion.html">Iniciar Sesión</a></li>
+                <li><a href="#">-</a></li>
+                <li><a href="QuienesSomos.html">¿Quiénes Somos?</a></li>
+            </ul>
+        </nav>
+        <div class="user-section">
+            <a href="#" class="help-btn">
+                <i class="fas fa-question-circle"></i> Ayuda
+            </a>
+        </div>
+    </header>
+    <!-- Contenedor principal que contiene el formulario y el mapa -->
+    <div class="main-container">
+        <div class="left-section">
+            <!-- Encabezado y descripción -->
+            <h1>Viaja A Cualquier Lugar Con URBAN</h1>
+            <p>Planifica tu viaje de forma rápida y segura.</p>
+            <!-- Formulario para seleccionar puntos de partida, destino y fecha/hora -->
+            <form>
+                <div class="form-group">
+                    <!-- Campo para el punto de partida -->
+                    <input type="text" placeholder="📍 Punto de Partida" aria-label="Punto de Partida">
+                </div>
+                <div class="form-group">
+                    <!-- Campo para el destino -->
+                    <input type="text" placeholder="📍 Destino" aria-label="Destino">
+                </div>
+                <div class="form-group">
+                    <!-- Campo para la fecha del viaje -->
+                    <input type="date" aria-label="Fecha del Viaje">
+                </div>
+                <div class="form-group">
+                    <!-- Campo para la hora del viaje -->
+                    <input type="time" aria-label="Hora del Viaje">
+                </div>
+                <!-- Botón para calcular precios -->
+                <button type="submit">Calcular Precios</button>
+            </form>
+        </div>
+        <!-- Contenedor para el mapa interactivo -->
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+    <script>
+        // Inicializa el mapa y establece la vista inicial
+        var map = L.map('map').setView([23.649675, -100.645048], 13);
+
+        // Agrega el mapa base desde OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19, // Zoom máximo permitido
+            attribution: '© OpenStreetMap contributors' // Atribución requerida
+        }).addTo(map);
+
+        // Variables para almacenar los marcadores y el control de rutas
+        var startMarker = null;
+        var endMarker = null;
+        var routingControl = null;
+
+        // Función para obtener la dirección legible a partir de coordenadas
+        function getAddress(lat, lng, inputSelector) {
+            const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`;
+
+            fetch(url) // Realiza una solicitud a la API
+                .then(response => response.json()) // Convierte la respuesta a JSON
+                .then(data => {
+                    if (data && data.display_name) {
+                        // Si hay una dirección, la muestra en el campo correspondiente
+                        document.querySelector(inputSelector).value = data.display_name;
+                    } else {
+                        // Si no hay datos, muestra un mensaje de error
+                        document.querySelector(inputSelector).value = "Dirección no encontrada";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error al obtener la dirección:", error);
+                    // Maneja errores de la API
+                    document.querySelector(inputSelector).value = "Error al obtener la dirección";
+                });
+        }
+
+        // Función que maneja los clics en el mapa
+        function onMapClick(e) {
+            if (!startMarker) {
+                // Si no hay marcador de partida, lo agrega
+                startMarker = L.marker(e.latlng).addTo(map)
+                    .bindPopup('Punto de Partida') // Mensaje emergente
+                    .openPopup();
+                // Obtiene la dirección del punto de partida
+                getAddress(e.latlng.lat, e.latlng.lng, 'input[placeholder="📍 Punto de Partida"]');
+            } else if (!endMarker) {
+                // Si no hay marcador de destino, lo agrega
+                endMarker = L.marker(e.latlng).addTo(map)
+                    .bindPopup('Destino') // Mensaje emergente
+                    .openPopup();
+                // Obtiene la dirección del destino
+                getAddress(e.latlng.lat, e.latlng.lng, 'input[placeholder="📍 Destino"]');
+
+                if (routingControl) {
+                    // Elimina una ruta anterior si existe
+                    map.removeControl(routingControl);
+                }
+                // Agrega el control de rutas entre los dos puntos
+                routingControl = L.Routing.control({
+                    waypoints: [startMarker.getLatLng(), endMarker.getLatLng()], // Coordenadas
+                    routeWhileDragging: true, // Permite arrastrar la ruta para modificarla
+                    show: false, // Oculta el menú adicional de rutas
+                    language: 'es' // Configura el idioma
+                }).addTo(map);
+            } else {
+                // Si ya existen dos marcadores, los reinicia
+                map.removeLayer(startMarker);
+                map.removeLayer(endMarker);
+                if (routingControl) {
+                    map.removeControl(routingControl);
+                }
+                startMarker = L.marker(e.latlng).addTo(map)
+                    .bindPopup('Punto de Partida')
+                    .openPopup();
+                // Reinicia la dirección del punto de partida
+                getAddress(e.latlng.lat, e.latlng.lng, 'input[placeholder="📍 Punto de Partida"]');
+                endMarker = null; // Reinicia el marcador de destino
+            }
+        }
+
+        // Vincula el evento de clic al mapa
+        map.on('click', onMapClick);
+    </script>
+</body>
+</html>

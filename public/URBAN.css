@@ -1,0 +1,119 @@
+body {
+    margin: 0; /* Elimina los márgenes predeterminados del navegador */
+    padding: 0; /* Elimina el padding predeterminado del navegador */
+    font-family: Arial, sans-serif; /* Establece la fuente predeterminada como Arial, o sans-serif como alternativa */
+    background-image: url(/Jehyson/Imagenes/FondoURBAN.jpg!d); /* Establece una imagen de fondo */
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    color: #000000; /* Establece el color del texto a negro */
+    display: flex; /* Usa un contenedor flexible (Flexbox) */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    height: 100vh; /* Define que el cuerpo ocupe el 100% de la altura de la ventana */
+}
+
+.main-container {
+    display: flex; /* Usa Flexbox para el contenedor principal */
+    justify-content: space-between; /* Espacia los elementos en el contenedor */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    width: 80%; /* Establece el ancho del contenedor principal al 80% de la pantalla */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad para hacer que el texto sea legible */
+    padding: 20px; /* Agrega un padding de 20px alrededor del contenedor */
+    border-radius: 10px; /* Bordes redondeados con un radio de 10px */
+}
+
+.container {
+    text-align: left; /* Alinea el texto a la izquierda */
+    flex: 1; /* Establece que este elemento ocupe el espacio restante disponible */
+    margin-right: 20px; /* Agrega un margen a la derecha del contenedor */
+}
+
+h1 {
+    font-size: 4em; /* Establece el tamaño de la fuente del título a 3 veces el tamaño estándar */
+    margin-bottom: 10px; /* Agrega un margen inferior de 10px */
+    color: #000000; /* Establece el color del texto del título a negro */
+}
+
+p {
+    font-size: 1.7em; /* Establece el tamaño de la fuente del párrafo a 1.2 veces el tamaño estándar */
+    margin-bottom: 20px; /* Agrega un margen inferior de 20px */
+    color: #000000; /* Establece el color del texto del párrafo a negro */
+}
+
+input[type="text"], input[type="button"] {
+    padding: 10px; /* Agrega padding de 10px a los campos de texto y botones */
+    font-size: 1.5em; /* Establece el tamaño de la fuente a un tamaño estándar */
+    margin: 10px; /* Agrega un margen de 10px alrededor de los elementos */
+    border-radius: 5px; /* Bordes redondeados con un radio de 5px */
+    border: none; /* Elimina el borde predeterminado de los elementos */
+}
+
+input[type="text"] {
+    width: 250px; /* Establece un ancho fijo de 250px para los campos de texto */
+}
+
+input[type="button"] {
+    background-color: white; /* Establece el fondo del botón a blanco */
+    color: black; /* Establece el color del texto del botón a negro */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón para indicar que es clickeable */
+}
+
+input[type="button"]:hover {
+    background-color: #f2f2f2; /* Cambia el fondo del botón a un gris claro cuando el mouse pasa sobre él */
+}
+
+header {
+    position: absolute; /* Posiciona el encabezado de forma absoluta en la parte superior */
+    top: 0; /* Coloca el encabezado en la parte superior de la página */
+    width: 100%; /* Establece que el encabezado ocupe todo el ancho de la pantalla */
+    background-color: #000000; /* Establece el fondo del encabezado a negro */
+    padding: 10px 0; /* Agrega un padding de 10px arriba y abajo del encabezado */
+    display: flex; /* Usa Flexbox para el encabezado */
+    justify-content: space-between; /* Espacia los elementos del encabezado de forma equitativa */
+    align-items: center; /* Alinea los elementos del encabezado al centro */
+    padding: 0 20px; /* Agrega padding lateral (izquierda y derecha) de 20px */
+}
+
+.logo {
+    color: white; /* Establece el color del texto del logo a blanco */
+    font-size: 1.5em; /* Establece el tamaño de la fuente del logo a 1.5 veces el tamaño estándar */
+    font-weight: bold; /* Establece el peso de la fuente del logo a negrita */
+}
+
+nav ul {
+    list-style: none; /* Elimina los puntos de lista predeterminados */
+    display: flex; /* Usa Flexbox para el contenedor de los enlaces de navegación */
+    gap: 15px; /* Agrega un espacio de 15px entre los elementos de la lista */
+}
+
+nav ul li {
+    display: inline; /* Hace que los elementos de la lista se muestren en línea */
+}
+
+nav ul li a {
+    color: white; /* Establece el color de los enlaces a blanco */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-size: 1em; /* Establece el tamaño de la fuente de los enlaces */
+}
+
+.user-section {
+    display: flex; /* Usa Flexbox para la sección del usuario */
+    align-items: center; /* Alinea los elementos del usuario verticalmente al centro */
+    gap: 10px; /* Agrega un espacio de 10px entre los elementos de la sección */
+}
+
+.user-section span {
+    color: white; /* Establece el color del texto de la sección del usuario a blanco */
+}
+
+.image-container {
+    flex: 1; /* Establece que este contenedor ocupe el espacio restante disponible */
+    display: flex; /* Usa Flexbox para alinear el contenido */
+    justify-content: center; /* Centra la imagen dentro del contenedor */
+}
+
+img {
+    width: 400px; /* Establece un ancho fijo de 400px para las imágenes */
+    height: auto; /* Ajusta la altura de la imagen automáticamente para mantener la proporción */
+}

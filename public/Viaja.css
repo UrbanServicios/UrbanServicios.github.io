@@ -1,0 +1,108 @@
+/* Define estilos globales para el cuerpo */
+body {
+    margin: 0; /* Elimina los márgenes predeterminados */
+    font-family: Arial, sans-serif; /* Fuente principal */
+    background-image: url(/Jehyson/Imagenes/FondoViaja.jpg); /* Fondo de la página */
+    background-size: cover; /* Ajusta el fondo para cubrir toda el área */
+    background-position: center; /* Centra el fondo */
+    background-attachment: fixed; /* Fija el fondo durante el desplazamiento */
+    color: #000; /* Color del texto */
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    padding: 10px 20px; /* Espaciado interno */
+    display: flex; /* Estilo de caja flexible */
+    justify-content: space-between; /* Distribuye elementos a los lados */
+    align-items: center; /* Alinea elementos verticalmente */
+}
+
+/* Estilo del logotipo */
+.logo {
+    color: white;
+    font-size: 1.8em; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+}
+
+/* Lista de navegación */
+nav ul {
+    list-style: none; /* Elimina viñetas */
+    display: flex; /* Crea una fila */
+    gap: 15px; /* Espaciado entre elementos */
+}
+
+/* Enlaces de navegación */
+nav ul li a {
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1.2em; /* Tamaño del texto */
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex; /* Diseño en fila */
+    justify-content: space-between; /* Espacio entre secciones */
+    padding: 200px 15%; /* Márgenes internos */
+    align-items: flex-start; /* Alineación vertical */
+}
+
+/* Sección izquierda */
+.left-section {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    margin-right: 50px; /* Espaciado con el mapa */
+}
+
+/* Encabezado y párrafo */
+h1, p {
+    background-color: rgba(0, 0, 0, 0.89); /* Fondo oscuro */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+    color: white; /* Texto blanco */
+    display: inline-block; /* Ajusta al contenido */
+}
+
+/* Estilo del formulario */
+.form-group {
+    margin-bottom: 15px; /* Espaciado entre campos */
+}
+
+/* Campos de entrada y botones */
+input[type="text"], input[type="date"], input[type="time"], button, select {
+    width: 100%; /* Ocupan todo el ancho */
+    padding: 15px; /* Espaciado interno */
+    font-size: 1em; /* Tamaño del texto */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 10px; /* Esquinas redondeadas */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px; /* Espaciado interno */
+    font-size: 1em; /* Tamaño del texto */
+    cursor: pointer; /* Cambia a puntero al pasar el ratón */
+    border-radius: 5px; /* Esquinas redondeadas */
+}
+
+button:hover {
+    background-color: #333; /* Fondo más oscuro al pasar el ratón */
+}
+
+/* Contenedor del mapa */
+.map-container {
+    flex: 1; /* Ocupa todo el espacio disponible */
+    height: 400px; /* Altura fija */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Esquinas redondeadas */
+    overflow: hidden; /* Oculta contenido que se desborde */
+}
+
+/* Estilo del mapa */
+#map {
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+}

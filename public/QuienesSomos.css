@@ -1,0 +1,151 @@
+body {
+    margin: 0; /* Elimina el margen por defecto de la página */
+    padding: 0; /* Elimina el padding por defecto */
+    font-family: Arial, sans-serif; /* Define la fuente principal de la página */
+    background-color: #f2f2f2; /* Establece un color de fondo claro para el cuerpo de la página */
+}
+
+/* Estilo para el header */
+header {
+    position: absolute; /* Posiciona el encabezado de manera absoluta respecto al documento */
+    top: 0; /* Lo coloca en la parte superior de la página */
+    width: 100%; /* Hace que el encabezado ocupe todo el ancho de la pantalla */
+    background-color: #000000; /* Establece el color de fondo del encabezado como negro */
+    padding: 10px 0; /* Añade un padding de 10px en la parte superior e inferior */
+    display: flex; /* Usa Flexbox para organizar los elementos dentro del encabezado */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos a los extremos */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    padding: 0 20px; /* Añade un padding de 20px en los lados izquierdo y derecho */
+    z-index: 1000; /* Establece un nivel de apilamiento alto para que se superponga a otros elementos */
+}
+
+.logo {
+    color: white; /* Establece el color del texto del logo como blanco */
+    font-size: 1.5em; /* Establece el tamaño de fuente del logo */
+    font-weight: bold; /* Hace el texto del logo en negrita */
+}
+
+nav ul {
+    list-style: none; /* Elimina los puntos de las listas */
+    display: flex; /* Organiza los elementos de la lista en línea */
+    gap: 15px; /* Establece un espacio de 15px entre los elementos de la lista */
+}
+
+nav ul li {
+    display: inline; /* Los elementos de la lista se muestran en línea */
+}
+
+nav ul li a {
+    color: white; /* Establece el color del texto de los enlaces como blanco */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-size: 1em; /* Establece el tamaño de fuente de los enlaces */
+}
+
+.user-section {
+    display: flex; /* Usa Flexbox para organizar los elementos en línea */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    gap: 10px; /* Añade un espacio de 10px entre los elementos */
+}
+
+.user-section span {
+    color: white; /* Establece el color del texto dentro de la sección de usuario como blanco */
+}
+
+/* Sección hero */
+.hero-section {
+    background: linear-gradient( /* Aplica un fondo degradado para la sección hero */
+            rgba(0, 0, 0, 0.4), /* Degradado de color negro con opacidad del 40% */
+            rgba(0, 0, 0, 0.4) /* Otro color negro con opacidad del 40% */
+        ),
+        url('https://valordeley.es/wp-content/uploads/2022/02/pagina-quienes-somos-y-seo.jpg') center/cover no-repeat; /* Establece una imagen de fondo centrada, que cubra toda la sección */
+    height: 60vh; /* Define la altura de la sección hero como el 60% de la altura de la ventana */
+    display: flex; /* Usa Flexbox para organizar el contenido de la sección */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    text-align: center; /* Alinea el texto al centro */
+    color: white; /* Establece el color del texto como blanco */
+}
+
+.hero-section h1 {
+    font-size: 3em; /* Establece el tamaño de la fuente del título como 3 veces el tamaño base */
+    margin: 0; /* Elimina los márgenes alrededor del título */
+}
+
+/* Sección principal */
+.main-container {
+    padding: 50px 10%; /* Añade padding en los lados izquierdo y derecho, y 50px en la parte superior e inferior */
+    background-color: #fff; /* Establece un fondo blanco para la sección principal */
+}
+
+.main-container h2 {
+    font-size: 2em; /* Establece el tamaño de fuente del subtítulo como 2 veces el tamaño base */
+    color: #333; /* Establece el color del texto como un gris oscuro */
+    margin-bottom: 20px; /* Añade un margen en la parte inferior del subtítulo */
+    text-align: center; /* Alinea el subtítulo al centro */
+}
+
+.main-container p {
+    font-size: 1.2em; /* Establece el tamaño de fuente del párrafo */
+    line-height: 1.8; /* Establece el interlineado a 1.8 veces el tamaño de la fuente */
+    color: #555; /* Establece el color del texto como un gris intermedio */
+    text-align: justify; /* Justifica el texto para que se distribuya uniformemente */
+}
+
+/* Bloques informativos */
+.info-section {
+    display: flex; /* Usa Flexbox para organizar los elementos en línea */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    justify-content: space-between; /* Distribuye los elementos de manera equidistante */
+    padding: 50px 10%; /* Añade un padding de 50px en la parte superior e inferior y 10% en los lados */
+}
+
+.info-section img {
+    width: 45%; /* Define que la imagen ocupe el 45% del ancho disponible */
+    border-radius: 10px; /* Aplica bordes redondeados a la imagen */
+}
+
+.info-text {
+    width: 50%; /* Define que el texto ocupe el 50% del ancho disponible */
+}
+
+.info-text h3 {
+    font-size: 1.8em; /* Establece el tamaño de fuente del subtítulo dentro de los bloques informativos */
+    color: #333; /* Establece el color del texto como un gris oscuro */
+    margin-bottom: 10px; /* Añade un margen en la parte inferior */
+}
+
+.info-text p {
+    font-size: 1em; /* Establece el tamaño de fuente del párrafo dentro de los bloques informativos */
+    color: #555; /* Establece el color del texto como un gris intermedio */
+    line-height: 1.6; /* Establece el interlineado a 1.6 veces el tamaño de la fuente */
+}
+
+.info-text a {
+    color: #0000ee; /* Establece el color de los enlaces como azul */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-weight: bold; /* Hace el texto del enlace en negrita */
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2em; /* Reduce el tamaño de fuente del título en la sección hero para pantallas más pequeñas */
+    }
+
+    .main-container {
+        padding: 20px; /* Reduce el padding en la sección principal para pantallas más pequeñas */
+    }
+
+    .info-section {
+        flex-direction: column; /* Cambia la dirección de los elementos a columna en pantallas más pequeñas */
+    }
+
+    .info-section img,
+    .info-text {
+        width: 100%; /* Hace que tanto la imagen como el texto ocupen el 100% del ancho disponible */
+    }
+
+    .info-section img {
+        margin-bottom: 20px; /* Añade un margen en la parte inferior de la imagen para pantallas pequeñas */
+    }
+}
