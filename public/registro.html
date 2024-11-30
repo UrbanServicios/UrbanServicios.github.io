@@ -1,0 +1,51 @@
+ <!--registro.html-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiTaxi</title>
+    <link rel="stylesheet" href="registrar.css"> 
+</head>
+<body>
+    
+    <script src="login.js"></script>
+
+    <header>
+        <div class="logo">ServiTaxi</div>
+        <nav>
+            <ul>
+                <li><a href="#">Viaja</a></li>
+                <li><a href="#">-</a></li>
+                <li><a href="#">Conduce Con Nosotros</a></li>
+                <li><a href="#">-</a></li>
+                <li><a href="#">¿Quiénes Somos?</a></li>
+            </ul>
+        </nav>
+        <div class="user-section">
+            <span>¡Ayuda!</span>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="container">
+            <h1>HAZTE USUARIO</h1>
+            <p>VIVE MAGICAS Y BUENAS EXPERIENCIAS CON SERVITAXI</p>
+            <form id="registerForm">
+                <input type="text" name="nombre" placeholder="Ingresa Tu Nombre(s)" required>
+                <input type="text" name="apellidos" placeholder="Ingresa Tus Apellidos" required>
+                <input type="text" name="telefonocoreo" placeholder="Ingresa Tu Telefono o Correo" required>
+                <input type="password" id="password" name="password" placeholder="Ingresa Una Contraseña" required>
+                <input type="password" id="confirmPassword" placeholder="Confirma Tu Contraseña" required>
+                <br>
+                <button type="button" onclick="registrarUsuario()">Registrate</button>
+            </form>
+            
+        </div>
+        <div class="image-container">
+            <img src="imagenes/tax.png">
+        </div>
+    </div>
+
+</body>
+</html>
