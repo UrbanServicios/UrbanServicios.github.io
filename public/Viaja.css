@@ -2,7 +2,7 @@
 body {
     margin: 0; /* Elimina los márgenes predeterminados */
     font-family: Arial, sans-serif; /* Fuente principal */
-    background-image: url(/Jehyson/Imagenes/FondoViaja.jpg); /* Fondo de la página */
+    background-image: url(https://www.limousines-premier.com/uploads/images/consejos_para_realizar_un_viaje_largo.jpg); /* Fondo de la página */
     background-size: cover; /* Ajusta el fondo para cubrir toda el área */
     background-position: center; /* Centra el fondo */
     background-attachment: fixed; /* Fija el fondo durante el desplazamiento */
