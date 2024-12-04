@@ -14,7 +14,7 @@ async function registrarUsuario() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-        const response = await fetch('http://localhost:3000/registro', {
+        const response = await fetch('http://localhost:3000/registrar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
